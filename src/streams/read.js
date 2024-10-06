@@ -7,12 +7,12 @@ const read = async () => {
   const __dirname = path.dirname(__filename);
   const filePath = `${__dirname}/files/fileToRead.txt`;
 
-  try {
-    const readStream = createReadStream(filePath);
-    readStream.pipe(process.stdout);
-  } catch {
+  const readStream = createReadStream(filePath);
+  readStream.pipe(process.stdout);
+
+  readStream.on("error", () => {
     console.error("FS operation failed");
-  }
+  });
 };
 
 await read();
