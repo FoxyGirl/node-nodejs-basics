@@ -7,14 +7,14 @@ const write = async () => {
   const __dirname = path.dirname(__filename);
   const fileWritePath = `${__dirname}/files/fileToWrite.txt`;
 
-  const stream = createWriteStream(fileWritePath);
-  process.stdin.pipe(stream);
+  const writeStream = createWriteStream(fileWritePath);
+  process.stdin.pipe(writeStream);
 
-  stream.on("finish", () => {
+  writeStream.on("finish", () => {
     console.log("File written");
   });
 
-  stream.on("error", () => {
+  writeStream.on("error", () => {
     console.error("FS operation failed");
   });
 };
