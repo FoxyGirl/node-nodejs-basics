@@ -1,4 +1,4 @@
-import { Worker, parentPort } from "worker_threads";
+import { Worker } from "worker_threads";
 import { fileURLToPath } from "url";
 import path from "path";
 import { cpus } from "os";
